@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .titulo{
+      text-align: center;
+      padding: 50px;
+      font-size: medium;
+      font-family:Arial, Helvetica, sans-serif;
+      border: 38px;
+      }
+    body {
+        background-color: rgb(213, 215, 216);
+    }
+    section{
+        border-radius: 30%;
+        text-align: center;
+        padding: 25px;
+    }
+    footer{
+        text-align: center;
+        padding: 35%;
+    }   
+    button:hover{
+          border-color: green;
+          transform: translateY(-5px);
+        
+
+
+        
+    }
+    
+    </style>
+</head>
+<body id="page">
+    <header>
+     <section>
+        <h3 class="titulo">TRANSIÇÃO DE PAGAMENTO</h3>
+        <br>
+       <p id="paragrafo"> Status: Aguardando o pagamento...</p>
+
+       <button onclick="MudarTudo()">CONFIRMAR PAGAMENTO</button>
+
+     </section>   
+
+    </header>
+
+<footer>Sistema completamente seguro e monitorado!</footer>
+<script>
+   function MudarTudo(){
+    document.getElementById("paragrafo").innerHTML=
+    "Status: Pagamento confirmado!";
+
+    document.getElementById("page").style.backgroundColor= 
+    "Green";
+   }
+
+   
+
+</script>
+</body>
+</html>
