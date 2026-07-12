@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSEUDOCLASSE</title>
+    <style>
+    div{
+        background-color: gainsboro;
+        text-align: center;
+        height: 150px;
+        border: 2px solid black;
+        width: 500px;
+    }
+    
+    #menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #menu h3{
+        margin: 0 20px;
+    }
+    #menu h3:hover{
+        background-color: beige;
+    }
+        
+    
+
+    
+    
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h3>Menu</h3>
+        <h3>Menu</h3>
+        <h3>Menu</h3>
+    </div>   
+       
