@@ -1,1 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Rio ingress</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+    <style>
+        .container{
+            display: grid;
+             grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+            
+        /* TOPO */
 
+        }
+    
+        header{
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: #0f172a;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            gap: 40px;
+
+
+        }
+
+        .search-bar{
+            position: relative;
+            max-width: 450px;
+            width: 100%;
+            justify-self: center;
+        }
+
+        .search-bar input{
+            width: 100%;
+            padding: 12px 25px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .search-bar input:focus{
+            outline: none;
+            background: rgba(255,255,255,0.1);
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .search-bar input::placeholder{
+            color: rgba(255,255,255,0.3);
+        }
+        .menu{
+            justify-self: end;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+     
+        }
+
+        .logo{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            letter-spacing: -1.5px;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            
+            }
+
+            .event{
+                color: rgba(255, 255, 255, 0.6);
+                font-weight: 300;
+                font-size: 20px;
+                letter-spacing: 1px;
+            
+            }
+
+            .rio{
+                color: #3b82f6;
+                font-size: 42px;
+                font-weight: 900;
+                font-style: italic;
+                text-transform: uppercase;
+                letter-spacing: -2px;
+                background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                filter: drop-shadow(0px 4px 10px rgba(59, 130, 246, 0.3));
+            }
+
+            .imagem{
+                padding: 10px;
+            }
+
+        nav ul{
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            padding: 0;
+            margin: 0;
+            
+            
+        }
+        
+        nav ul ul{
+            display: none;
+            position: absolute;
+            background-color: #1e293b;
+            padding: 10px 0;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            min-width: 160px;
+            z-index: 1000;
+            border: 1px solid rgba(255,255,255,0.05);
+
+        }
+
+        nav ul ul li{
+            padding: 10px 20px;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            white-space: nowrap;
+            transition: 0.2s;
+        }
+
+        nav ul ul li:hover{
+            background: rgba(255,255,255,0.05);
+            color: #3b82f6;
+        }
+        nav > ul > li{
+          transition: 0.3s;
+            padding: 6px 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
+            cursor: pointer;
+        }
+
+        nav li{
+            position: relative;
+        
+        }
+
+        nav li:hover > ul{
+            display: block; 
+            
+        }
+        nav > ul > li:hover{
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+            border-radius: 6px;
+           
+        }
+
+        /*MEIO DA WEB*/
+
+        main{
+            padding: 50px 60px;
+            background-color: #f8fafc;
+        }
+
+        .destaques h2{
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #1e293b;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        
+        .hero{
+            padding: 120px 0;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('imagens/maracã.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            border-radius: 0 0 50px 50px;
+            margin-bottom: 50px;
+            transition: background-image 1s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 56px;
+            margin-bottom: 15px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: -2.5px;
+            background: linear-gradient(to bottom, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p{
+            font-size: 18px;
+            color: rgba(255,255,255,0.6);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+        .grid-eventos{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            align-items: stretch;
+        }
+        
+        .card{
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #0554F2;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            
+        } 
+
+        .card-image{
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        
+        }
+        .card-image img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.5s;
+        }
+        .card:hover .card-image img{
+            transform: scale(1.1);
+        }
+        .card-content{
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .card-content button{
+            margin-top: auto;
+        }
+        .card-content h3{
+            margin: 0;
+            font-size: 20px;
+            font-weight: 800;
+            color: #1e293b;
+            letter-spacing: -0.5px;
+        }
+
+        .card-content p{
+            margin: 0;
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .card:hover{
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #3b82f6;
+
+        }
+        .card button{
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .card button:hover{
+            background: #1d4ed8;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+        .container-main{
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .categoria{
+            display: inline-block;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        footer{
+            background-color: #0f172a;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+        <div class="logo">
+            <span class="event">EVENT</span>
+            <span class="rio">RIO</span>
+            
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar shows, teatros e esportes...">
+        </div>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li>
+                        SHOWS
+                     <ul>
+                    <li>Samba</li>
+                    <li>Rock</li>
+                    <li>Eletrônica</li>
+                    <li>MPB</li>
+                    <li>Hip-Hop</li>
+                    </ul> 
+                    </li>
+
+
+                    <li>ESPORTES
+                        <ul>
+                         <li>Futebol</li>
+                         <li>Basquete</li>
+                         <li>Volei</li> 
+                         <li>Outros</li>      
+                        </ul>
+                    </li>
+                    <li>TEATRO
+                    <ul>
+                               <li>Stand-up</li>                                                  <li>Comédia</li>                                                  <li>Romance</li>                                                  <li>Drama</li>                                                  <li>Aventura</li>                                                  <li>Musical</li>
+                              
+                    </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        </header>
+        <main>
+            <section class="hero">
+            <h1>Descubra os melhores eventos do Rio</h1>
+              <p>Encontre shows, esportes e teatro em um só lugar.</p>
+            </section>
+
+        <!--CARROSSEL-->
+
+        <section class="carousel">
+
+        </section>
+        <section class="destaques">
+        
+            <!---GRID IMAGENS---->
+              
+            <h2>Eventos em Alta</h2>
+           
+            <div class="grid-eventos">
+
+                <!--Grid img Maraca-->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="imagens/mara.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="categoria">SHOW</span>
+                        <h3>Festival de Rock</h3>
+                        <p>Maracanã 12 Out 2026</p>
+                        <button>COMPRAR AGORA!</button>
+                    </div>
+                </div>
+              
+                <!--Grid img rock in Rio-->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="imagens/RKrio.jpg" alt="Rock in Rio">
+                    </div>
+                    <div class="card-content">
+                        <span class="categoria">FESTIVAL</span>
+                        <h3>Rock in Rio</h3>
+                        <p>Cidade do Rock 20 Set 2026</p>
+                        <button>COMPRAR AGORA!</button>
+                    </div>
+                </div>
+               
+                <!-- Grid img Rafa P -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="imagens/rafapt.jpg" alt="Rafael">
+                    </div>
+                    <div class="card-content">
+                        <span class="categoria">Stand-up</span>
+                        <h3>Teatro de Bangu</h3>
+                        <p>Bangu Shopping</p>
+                        <button>COMPRAR AGORA!</button>
+                    </div>
+                </div>
+                
+                 <!--Grid img M.garrix-->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="imagens/djgarrix.jpg" alt="Martin garrix">
+                    </div>
+                    <div class="card-content">
+                        <span class="categoria">ELETRÔNICA</span>
+                        <h3>ARENA FARMASI</h3>
+                        <p>RIO 2</p>
+                        <button>COMPRAR AGORA!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+        <footer class="footer"> 2026 EVENT RIO - Todos os direitos reservados
+        </footer>
+    </div>
+    <script>
+        // --- Interação 1: Botões de Compra ---
+        const botoes = document.querySelectorAll('.card button');
+        botoes.forEach(function(botao) {
+            botao.addEventListener('click', function() {
+                alert('Obrigado por escolher a Event Rio! Você será redirecionado para o pagamento.');
+            });
+        });
+
+        // --- Interação 2: Carrossel de Imagens no Hero ---
+        
+        // 1. Criamos uma lista (Array) com os caminhos das imagens
+        const imagensHero = [
+            'imagens/mgarrix.jpg',
+            'imagens/RKrio.jpg',
+            'imagens/rockinrio.jpg',
+            'imagens/portugal.jpg',
+            'imagens/maraca.jpg'
+        ];
+
+        // 2. Selecionamos a seção hero
+        const heroSection = document.querySelector('.hero');
+
+        // 3. Função para trocar a imagem
+        function trocarImagem() {
+            // Sorteia um número entre 0 e o tamanho da lista
+            const numeroAleatorio = Math.floor(Math.random() * imagensHero.length);
+            const imagemSorteada = imagensHero[numeroAleatorio];
+            
+            // Troca o background do hero (mantendo o gradiente escuro para o texto aparecer)
+            heroSection.style.backgroundImage = `linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('${imagemSorteada}')`;
+        }
+
+        // 4. Dizemos para o navegador rodar essa função a cada 5 segundos (5000ms)
+        setInterval(trocarImagem, 5000);
+
+    </script>
+</body>
+</html>
